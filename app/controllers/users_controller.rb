@@ -8,8 +8,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
+		name = user_params[:name]
+		email = user_params[:email]
+		digest = user_params[:password_field]
+
+		@user = User.new({name:name, email:email, password_digest: digest})
 		if @user.save
+			session[:user_id] = @user.id.to_s
 			redirect_to users_path
 		else
 			render :new
@@ -18,6 +23,6 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require( :user ).permit( :name, :email, :password, :password_confirmation)
+		params.require( :user ).permit( :name, :email, :password_field, :password_confirmation)
 	end
 end
