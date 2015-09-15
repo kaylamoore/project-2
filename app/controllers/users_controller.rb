@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+	include SessionsHelper
 	def index
 		@users = User.all
 	end
-
+	def show
+		@users = current_user
+	end
 	def new
 		@user = User.new
 	end
