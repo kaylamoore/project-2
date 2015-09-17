@@ -11,8 +11,16 @@ class NotesController < ApplicationController
 		redirect_to user_path(new_user)
 	end
 	def new
-		@user = User.new
+		#@user = User.new
+		@note = Note.new
+
+		respond_to do |format|
+			format.html 
+			format.json {render :json => @note}
+		end
 	end
+
+
 	def edit
 		@user = User.find(params[:id])
 	end
