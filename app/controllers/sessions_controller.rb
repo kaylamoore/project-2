@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:login][:email].downcase)
 		if user && user.authenticate(params[:login][:password])
 			session[:user_id] = user.id.to_s
-			redirect_to show_user_path(user), notice: "LOGGED IN"
+			redirect_to user_path(user)
 		else
 			render :new
 		end
