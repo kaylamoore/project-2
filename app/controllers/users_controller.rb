@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 	def show
-		@user = User.find(params[:id])
-		@notes = @user.notes
-		@pictures = @user.pictures
+		@user = current_user
+		#@notes = @user.notes
+		#@pictures = @user.pictures
 	end
 	def new
 		@user = User.new

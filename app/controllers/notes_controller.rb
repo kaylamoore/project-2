@@ -7,17 +7,16 @@ class NotesController < ApplicationController
 		@notes = Note.where(user_id: @user.id)
 	end
 	def create
-		new_user = User.create(user_params)
-		redirect_to user_path(new_user)
+		# new_user = User.create(user_params)
+		@note = Note.create(user_params)
+		if @note.save
+			current_user.notes << @note
+			redirect_to user_path
+		end
 	end
 	def new
-		#@user = User.new
+		# @user = User.new
 		@note = Note.new
-
-		respond_to do |format|
-			format.html 
-			format.json {render :json => @note}
-		end
 	end
 
 
@@ -38,6 +37,6 @@ class NotesController < ApplicationController
 	private 
 
 	def user_params
-		params.require( :user ).permit(:name, :email, :password, :password_confirmation)
+		params.require(:note).permit(:title, :list)
 	end
 end
