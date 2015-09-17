@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 	def show
-		@users = current_user
+		@users = User.find(params[:id])
 	end
 	def new
 		@user = User.new
@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 	def create
 		name = user_params[:name]
 		email = user_params[:email]
-		digest = user_params[:password_field]
+		digest = user_params[:password]
 
-		@user = User.new({name:name, email:email, password_digest: digest})
+		@user = User.new({name:name, email:email, password: digest})
 		if @user.save
 			session[:user_id] = @user.id.to_s
 			redirect_to users_path
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require( :user ).permit( :name, :email, :password_field, :password_confirmation)
+		params.require( :user ).permit( :name, :email, :password, :password_confirmation)
 	end
 end
