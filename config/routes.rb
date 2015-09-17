@@ -5,12 +5,17 @@ Rails.application.routes.draw do
   get "users" => "users#index"
   get "users/new" => "users#new"
   post "users" => "users#create"
-  get "users/:id" => "users#show", as: :show_user
+  get "users/:id" => "users#show", as: :user
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
   delete '/logout' => "sessions#destroy"
 
+  get "users/:id/notes" => "notes#index"
+  get "users/:id/notes/new" => "notes#new", as: :new_user_note
+
+  get "users/:id/pictures" => "pictures#index"
+  get "users/:id/pictures/new" => "pictures#show", as: :new_user_picture
 
   #get 'login' => 'sessions#new'
 

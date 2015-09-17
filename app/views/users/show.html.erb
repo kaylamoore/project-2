@@ -3,8 +3,11 @@
  
  <p>This is inspired by GoogleKeep. Feel free to use this as a way to save your thoughts online so that they are accessible whenever you need them. </p> 
 
- <p>
-Create <a href="">NOTES </a>
+<% @notes.each do |note| %>
+	<%= note.title %>
+	<%= note.list %>
+	
+<% end %> 
 
-or upload <a href="">PICTURES </a>.
-</p>
+
+<%= link_to "CREATE A NEW NOTE", new_user_note_path(@user) %>
