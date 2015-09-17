@@ -3,12 +3,15 @@
  
  <p>This is inspired by GoogleKeep. Feel free to use this as a way to save your thoughts online so that they are accessible whenever you need them. </p> 
 
+<ul>
 <% @user.notes.each do |note| %>
-	<%= note.title %>
-	<%= note.list %>
-	
+	<li><%= note.title %></li>
+	<li><%= note.list %></li>
+	<br>
+	</ul>
 <% end %> 
 
+<br><br><br><br>
 
 <%= link_to "CREATE A NEW NOTE", new_user_note_path(@user) %>
 <%= link_to "UPLOAD A PICTURE" , new_user_picture_path(@user) %>
