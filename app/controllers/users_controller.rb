@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 		@user = User.new({name:name, email:email, password: digest})
 		if @user.save
 			session[:user_id] = @user.id.to_s
-			redirect_to users_path
+			redirect_to user_path(:user)
 		else
 			render :new
 		end 

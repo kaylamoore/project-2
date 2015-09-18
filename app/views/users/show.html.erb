@@ -9,12 +9,14 @@
 	<p class="bg-warning"><%= note.list %></p>
 	<br>
 	<%= link_to 'DELETE', delete_note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<br>
 	</div>
 <% end %> 
 
 <% @user.pictures.each do |post| %>
     <%= picture.title %><br>
     <%= image_tag post.image.url(:large) %><br><hr>
+    <%= link_to 'DELETE', delete_picture_path(picture.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <br><br>

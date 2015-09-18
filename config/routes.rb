@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  #resources :pictures
-  #resources :notes
+
   #root to: "users#index"
 
   root "sessions#new"
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
   get "users/:id/notes/new" => "notes#new", as: :new_user_note
   post "users/:id/notes/new" => "notes#create"
   delete "users/:id/notes/new" => "notes#destroy", as: :delete_note
+  #patch "notes/:id" => "notes#update", as: :update_note
+  #put "notes/:id" => "notes#update"
 
   get "users/:id/pictures" => "pictures#index"
   get "users/:id/pictures/new" => "pictures#new", as: :new_user_picture
