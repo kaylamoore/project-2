@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 	def index
-		@users = User.all 
+		@notes = Note.all 
 	end
 	def show
 		@user = User.find(params[:id])
@@ -29,8 +29,8 @@ class NotesController < ApplicationController
 		redirect_to user_path(user)
 	end
 	def destroy
-		user = User.find(params[:id])
-		user.destroy
+		note = Note.find(params[:id])
+		note.destroy
 		redirect_to user_path
 	end
 

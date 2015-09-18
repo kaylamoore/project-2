@@ -16,10 +16,12 @@ Rails.application.routes.draw do
   get "users/:id/notes" => "notes#index"
   get "users/:id/notes/new" => "notes#new", as: :new_user_note
   post "users/:id/notes/new" => "notes#create"
+  delete "users/:id/notes/new" => "notes#destroy", as: :delete_note
 
   get "users/:id/pictures" => "pictures#index"
   get "users/:id/pictures/new" => "pictures#new", as: :new_user_picture
   post "users/:id/pictures/new" => "pictures#create"
+  delete "users/:id/pictures/new" => "pictures#destroy", as: :delete_picture
 
   #get 'login' => 'sessions#new'
 

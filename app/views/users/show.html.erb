@@ -8,6 +8,7 @@
 	<p class="bg-info"><%= note.title %></p>
 	<p class="bg-warning"><%= note.list %></p>
 	<br>
+	<%= link_to 'DELETE', delete_note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 	</div>
 <% end %> 
 
@@ -20,6 +21,8 @@
 
 <%= link_to "CREATE A NEW NOTE", new_user_note_path(@user) %>
 <%= link_to "UPLOAD A PICTURE" , new_user_picture_path(@user) %>
+
+
 
 <br><br>
 <%= link_to 'Log Out', logout_path, method: :delete %>
