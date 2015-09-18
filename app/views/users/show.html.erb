@@ -11,9 +11,12 @@
 	</div>
 <% end %> 
 
+<% @user.pictures.each do |post| %>
+    <%= picture.title %><br>
+    <%= image_tag post.image.url(:large) %><br><hr>
+<% end %>
 
-
-<br><br><br><br>
+<br><br>
 
 <%= link_to "CREATE A NEW NOTE", new_user_note_path(@user) %>
 <%= link_to "UPLOAD A PICTURE" , new_user_picture_path(@user) %>
