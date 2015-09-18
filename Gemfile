@@ -14,7 +14,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem "better_errors"
