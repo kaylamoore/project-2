@@ -3,15 +3,20 @@
  
  <p>This is inspired by GoogleKeep. Feel free to use this as a way to save your thoughts online so that they are accessible whenever you need them. </p> 
 
-<ul>
 <% @user.notes.each do |note| %>
-	<li><%= note.title %></li>
-	<li><%= note.list %></li>
+	<div class="jumbotron bg-warning" > 
+	<p class="bg-info"><%= note.title %></p>
+	<p class="bg-warning"><%= note.list %></p>
 	<br>
-	</ul>
+	</div>
 <% end %> 
+
+
 
 <br><br><br><br>
 
 <%= link_to "CREATE A NEW NOTE", new_user_note_path(@user) %>
 <%= link_to "UPLOAD A PICTURE" , new_user_picture_path(@user) %>
+
+<br><br>
+<%= link_to 'Log Out', logout_path, method: :delete %>

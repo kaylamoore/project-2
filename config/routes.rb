@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   post "users/:id/notes/new" => "notes#create"
 
   get "users/:id/pictures" => "pictures#index"
-  get "users/:id/pictures/new" => "pictures#show", as: :new_user_picture
+  get "users/:id/pictures/new" => "pictures#new", as: :new_user_picture
+  post "users/:id/pictures/new" => "pictures#create"
 
   #get 'login' => 'sessions#new'
 

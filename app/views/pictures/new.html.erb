@@ -1,1 +1,12 @@
-new.html.erb
+<h1>New Picture</h1>
+<%= form_for :picture do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<br><br>
+	
+	<%= f.label :image %>
+	<%= f.file_field :image %>
+	<br><br>
+	<%= f.submit %> 
+
+<% end %>
