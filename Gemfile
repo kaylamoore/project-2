@@ -38,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
 gem 'figaro'
 gem 'aws-sdk', '<2.0'
+gem 'imagemagick-identify', '~> 0.0.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
